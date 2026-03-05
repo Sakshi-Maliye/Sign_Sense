@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CommunicateEase Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-screen">
+        <h1>CommunicateEase</h1>
+        <input type="text" id="username" placeholder="Name...">
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div id="dashboard" style="display: none;">
+        <h2 id="greeting"></h2>
+
+        <div class="card">
+            <h3>Sign Language Output</h3>
+            <div id="display-container">
+                <img id="sign-display" src="assets/idle.jpeg">
+            </div>
+            <p id="current-translation">Ready...</p>
+            <input type="text" id="text-input" placeholder="Resulting text will appear here...">
+            <button onclick="manualTextSubmit()">Translate to Signs</button>
+        </div>
+
+        <div class="card">
+            <h3>Voice Translator</h3>
+            <button onclick="startListening()">🎤 Start Listening</button>
+            <p id="voice-output">Click to speak...</p>
+        </div>
+
+        <div class="card learning-card">
+            <h3>Practice Mode</h3>
+            <video id="tutorial-video" width="100%" controls style="display:none; border-radius:8px;"></video>
+            <button onclick="startLearningMode()">Start Practice</button>
+            <h4 id="learning-prompt"></h4>
+            <p id="learning-feedback"></p>
+        </div>
+
+        <div class="card">
+            <h3>Webcam Detection</h3>
+            <button onclick="initWebcam()">Turn On Camera</button>
+            <button onclick="stopWebcam()" style="background:#e74c3c;">Turn Off</button>
+            <video id="input-video" width="100%" autoplay playsinline style="border-radius:8px; margin-top:10px;"></video>
+            <canvas id="hidden-canvas" style="display:none;"></canvas>
+            <p id="gesture-output">Camera Off</p>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
